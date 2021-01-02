@@ -1,7 +1,8 @@
+
+
 def input_students
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
-  # create an empty array
   students = []
   # get the first name
   name = gets.chomp
@@ -17,6 +18,28 @@ def input_students
   students
 end
 
+def interactive_menu
+  students = []
+  loop do
+    puts "1. Input the students"
+    puts "2. Show the students"
+    puts "9. Exit" # 9 because we'll be adding more items
+    selection = get.chomp
+    case selecetion
+    when "1"
+      student = input_students
+    when "2"
+      print_header
+      print(students)
+      print_footer(students)
+    when "9"
+      exit
+    else
+      puts "I don't know what you meant, try again"
+    end
+  end
+end
+
 def print_header
   puts "The students of Villains Academy"
   puts "-------------"
@@ -24,7 +47,7 @@ end
 
 def print(students)
   students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} cohort)" 
+    puts "#{student[:name]} (#{student[:cohort]} cohort)"
   end
 end
 
